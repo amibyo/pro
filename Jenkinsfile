@@ -24,11 +24,21 @@ node{
                           { 
                           echo 'phase de test '
                           bat 'mvn test'
-                             post {
+                  
+                             }
+              stage ('Testing Stage II') {
+
+            steps {
+                withMaven(maven : 'maven_3_5_0') {
+                    sh 'mvn test'
+                }
+            }
+             post {
                 always {
                     junit 'target/surefire-reports/*.xml'
                 }
-                             }}
+            }
+        }
              stage('phase de packetage') 
                           { 
                           echo 'phase de packetage  '
