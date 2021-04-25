@@ -24,6 +24,10 @@ node{
                           { 
                           echo 'phase de test '
                           bat 'mvn test'
+                             post {
+                always {
+                    junit 'target/surefire-reports/*.xml'
+                }
                         }
              stage('phase de packetage') 
                           { 
@@ -38,7 +42,7 @@ node{
                stage('phase de deploiement d_un artefact dans le referentiel distant') 
                           { 
                           echo 'phase de déploiement d_un artefact dans le référentiel distant'
-                          bat 'mvn deploy'
+                         // bat 'mvn deploy'
                         }
  }
       
