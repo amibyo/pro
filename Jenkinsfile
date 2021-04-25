@@ -28,7 +28,7 @@ node{
                 always {
                     junit 'target/surefire-reports/*.xml'
                 }
-                        }
+                             }}
              stage('phase de packetage') 
                           { 
                           echo 'phase de packetage  '
