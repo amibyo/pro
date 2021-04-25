@@ -28,11 +28,7 @@ node{
                              }
               stage ('Testing Stage II') {
 
-            steps {
-               // withMaven(maven : 'maven_3_5_0') {
-                    bat 'mvn test'
-               // }
-            }
+          
              post {
                 always {
                     junit 'target/surefire-reports/*.xml'
