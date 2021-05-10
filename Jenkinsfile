@@ -1,29 +1,30 @@
-node{
-             stage('checkout')
+pipeline{
+    agent any
+             stage('checkout II')
                             {
                          echo 'Hello, git'
                          git 'https://github.com/ElferjeniDevops/maven/'
                         }
                 
-             stage('Example Build') 
+             stage('Example Build II') 
                           { 
                           echo 'Hello, Maven'
-                          bat 'mvn --version'
+                          sh 'mvn --version'
                         }
-             stage('phase de validation de code') 
+             stage('phase de validation de code  II') 
                           { 
                           echo 'phase de validation de code '
-                          bat 'mvn validate'
+                          sh 'mvn validate'
                         }
-             stage('phase de compilation') 
+             stage('phase de compilation II') 
                           { 
                           echo 'phase de compilation '
-                          bat 'mvn compile'
+                          sh 'mvn compile'
                         }
-             stage('phase de tesT') 
+             stage('phase de tesT II') 
                           { 
                           echo 'phase de test '
-                          bat 'mvn test'
+                          sh 'mvn test'
                   
                              }
               stage ('Testing Stage II') {
@@ -38,17 +39,17 @@ node{
              stage('phase de packetage') 
                           { 
                           echo 'phase de packetage  '
-                          bat 'mvn package'
+                          sh 'mvn package'
                         }
              stage('phase d_intallation de pachake dans votre RL') 
                           { 
                           echo 'phase d_intallation de pachake dans votre RL '
-                          bat 'mvn validate'
+                          sh 'mvn validate'
                         }
                stage('phase de deploiement d_un artefact dans le referentiel distant') 
                           { 
                           echo 'phase de déploiement d_un artefact dans le référentiel distant'
-                         // bat 'mvn deploy'
+                         sh "mvn deploy"
                         }
  }
       
